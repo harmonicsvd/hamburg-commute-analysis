@@ -1,0 +1,16 @@
+pandas
+numpy
+geopandas
+folium
+shapely
+requests
+faker
+matplotlib
+seaborn
+plotly
+googlemaps
+openrouteservice
+python-dotenv
+scikit-learn
+streamlit
+streamlit-folium

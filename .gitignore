@@ -1,0 +1,81 @@
+# Environment variables and API keys (sensitive)
+.env
+
+# Python cache and environment
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.eggs/
+*.egg-info/
+dist/
+build/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Cache files (temporary, can be regenerated)
+*cache.csv
+*_cache.csv
+routing_cache.csv
+car_routing_cache.csv
+candidate_walking_distances_cache.csv
+geocoding_cache.csv
+
+# OpenTripPlanner folder (large data files, can be regenerated)
+otp/
+
+# Large raw station data (can be regenerated from API)
+hvv_stations.csv
+
+# Intermediate station data files (can be regenerated)
+employee_candidate_stations.csv
+jj_office_candidate_stations.csv
+jj_office_station_access.csv
+
+# Intermediate employee data (can be regenerated)
+synthetic_employees_geocoded.csv
+
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Assessment documents (not part of the solution)
+assessment.txt
+data science assessment.doc
+data science assessment.txt
+Methodology for Public Transport Accessibility.md
+
+# Large files
+*.pbf
+*.osm.pbf
+
+# KEEP THESE FOR ASSIGNMENT SUBMISSION:
+# Essential files for recreation and Streamlit dashboard:
+# - All Jupyter notebooks (01-05)
+# - streamlit_dashboard.py
+# - setup.sh
+# - requirements.txt
+# - README.md
+# - .env.example
+# - data/synthetic_employees.csv (input data)
+# - data/synthetic_employees_with_optimal_commutes.csv (final output - needed for dashboard)
+# - data/hvv_stations_filtered.csv (processed station data - needed for dashboard)
+# - data/employee_candidate_stations_with_walking.csv (candidate stations - needed for dashboard)
+# - data/jj_office_candidate_stations_with_walking.csv (office stations - needed for dashboard)
+# - data/jj_office_snapped.json (office coordinates - needed for dashboard)
+# - data/*.png (visualization graphs - needed for assignment results)
+# - data/*.html (interactive map - needed for assignment results)
