@@ -64,6 +64,7 @@ The dashboard will be available at `http://localhost:8501`
 
 ### Multi-Candidate Station Approach
 **Approach:** Evaluate k=5 nearest stations per employee rather than using only the geographically nearest station
+
 **Decision Rationale:** The geographically nearest station may not provide the optimal commute time due to transit network structure, route connections, and service frequency
 **Implementation:** Calculate walking distances to 5 nearest stations, then evaluate all 25 combinations (5 employee stations × 5 office stations) to find minimal total commute time
 **Result:** 73.3% of employees benefit from multi-candidate approach over single-nearest-station approach
