@@ -63,68 +63,68 @@ The dashboard will be available at `http://localhost:8501`
 ## Methodology & Decisions
 
 ### Multi-Candidate Station Approach
-**Approach:** Evaluate k=5 nearest stations per employee rather than using only the geographically nearest station
+- **Approach:** Evaluate k=5 nearest stations per employee rather than using only the geographically nearest station
 
-**Decision Rationale:** The geographically nearest station may not provide the optimal commute time due to transit network structure, route connections, and service frequency
+- **Decision Rationale:** The geographically nearest station may not provide the optimal commute time due to transit network structure, route connections, and service frequency
 
-**Implementation:** Calculate walking distances to 5 nearest stations, then evaluate all 25 combinations (5 employee stations × 5 office stations) to find minimal total commute time
+- **Implementation:** Calculate walking distances to 5 nearest stations, then evaluate all 25 combinations (5 employee stations × 5 office stations) to find minimal total commute time
 
-**Result:** 73.3% of employees benefit from multi-candidate approach over single-nearest-station approach
+- **Result:** 73.3% of employees benefit from multi-candidate approach over single-nearest-station approach
 
 ### Realistic Walking Distance Calculation
-**Approach:** Use LocationIQ API for walking distances instead of straight-line distance calculations
+- **Approach:** Use LocationIQ API for walking distances instead of straight-line distance calculations
 
-**Decision Rationale:** Straight-line distance doesn't account for actual walking paths, roads, infrastructure, and barriers
+- **Decision Rationale:** Straight-line distance doesn't account for actual walking paths, roads, infrastructure, and barriers
 
-**Implementation:** Used LocationIQ API with caching to avoid redundant API calls and respect rate limits
+- **Implementation:** Used LocationIQ API with caching to avoid redundant API calls and respect rate limits
 
-**Benefit:** More accurate walking time estimates for station accessibility assessment
+- **Benefit:** More accurate walking time estimates for station accessibility assessment
 
 ### Car Routing for Real Comparison
-**Approach:** Use LocationIQ driving API with parking overhead for realistic car travel time comparison
+- **Approach:** Use LocationIQ driving API with parking overhead for realistic car travel time comparison
 
-**Decision Rationale:** Car routing needs to include practical time costs (parking search, walking from parking) to compare fairly with public transport
+- **Decision Rationale:** Car routing needs to include practical time costs (parking search, walking from parking) to compare fairly with public transport
 
-**Implementation:** Added 8-minute parking overhead to represent parking search time and walking from parking to office
+- **Implementation:** Added 8-minute parking overhead to represent parking search time and walking from parking to office
 
-**Result:** Real car time comparison including practical considerations
+- **Result:** Real car time comparison including practical considerations
 
 ### Adoption Scoring Framework
-**Approach:** Two-component framework (Transport Attractiveness 60% + Financial Attractiveness 40%)
+- **Approach:** Two-component framework (Transport Attractiveness 60% + Financial Attractiveness 40%)
 
-**Decision Rationale:** Separate transport (time/convenience) from financial (cost) factors to understand what drives adoption decisions
+- **Decision Rationale:** Separate transport (time/convenience) from financial (cost) factors to understand what drives adoption decisions
 
-**Transport Attractiveness:** Based on time ratio (PT time vs. car time) and walking penalty for accessibility
+- **Transport Attractiveness:** Based on time ratio (PT time vs. car time) and walking penalty for accessibility
 
-**Financial Attractiveness:** Based on cost savings compared to driving costs
+- **Financial Attractiveness:** Based on cost savings compared to driving costs
 
-**Weighting:** 60% transport, 40% financial - emphasizes practicality while acknowledging cost importance
+- **Weighting:** 60% transport, 40% financial - emphasizes practicality while acknowledging cost importance
 
 ### Cost Scenarios Analysis
-**Approach:** Evaluate three subsidy scenarios (Company Pays Full, 50% Subsidy, Employee Pays Full)
+- **Approach:** Evaluate three subsidy scenarios (Company Pays Full, 50% Subsidy, Employee Pays Full)
 
-**Decision Rationale:** Test how different financial arrangements affect adoption potential
+- **Decision Rationale:** Test how different financial arrangements affect adoption potential
 
-**Finding:** All scenarios showed identical adoption results because driving costs (€343/month average) are so much higher than Deutschlandticket (€63/month) that cost doesn't differentiate decisions
+- **Finding:** All scenarios showed identical adoption results because driving costs (€343/month average) are so much higher than Deutschlandticket (€63/month) that cost doesn't differentiate decisions
 
-**Implication:** Adoption decisions are driven by time and convenience rather than who pays for the ticket
+- **Implication:** Adoption decisions are driven by time and convenience rather than who pays for the ticket
 
 ### Geographic Connectivity Analysis
-**Approach:** Analyze public transport availability and quality by distance ranges from office
+- **Approach:** Analyze public transport availability and quality by distance ranges from office
 
-**Decision Rationale:** Understand which geographic areas have strong vs. weak public transport connectivity
+- **Decision Rationale:** Understand which geographic areas have strong vs. weak public transport connectivity
 
-**Finding:** Distance from office strongly affects PT availability - 0-20km has good coverage, 20km+ has limited options
+- **Finding:** Distance from office strongly affects PT availability - 0-20km has good coverage, 20km+ has limited options
 
-**Insight:** Public transport connectivity is not uniform - geographic location significantly affects adoption potential
+- **Insight:** Public transport connectivity is not uniform - geographic location significantly affects adoption potential
 
-**Strong Connectivity Areas:** 51 employees (38.9%) have commute times <45 minutes, with average transport attractiveness of 75.7/100
+- **Strong Connectivity Areas:** 51 employees (38.9%) have commute times <45 minutes, with average transport attractiveness of 75.7/100
 
-**Weak Connectivity Areas:** 63 employees (48.1%) have commute times >60 minutes, with average transport attractiveness of 48.9/100
+- **Weak Connectivity Areas:** 63 employees (48.1%) have commute times >60 minutes, with average transport attractiveness of 48.9/100
 
-**No PT Available:** 47 employees (26.4%) have no viable public transport routes
+- **No PT Available:** 47 employees (26.4%) have no viable public transport routes
 
-**Geographic Distribution:** Strong connectivity concentrated in 10-20km range (47 employees), weak connectivity concentrated in 30-50km range (58 employees)
+- **Geographic Distribution:** Strong connectivity concentrated in 10-20km range (47 employees), weak connectivity concentrated in 30-50km range (58 employees)
 
 ## Technical Implementation
 
