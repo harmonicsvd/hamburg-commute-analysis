@@ -41,6 +41,21 @@ The dashboard will be available at `http://localhost:8501`
 
 **Note:** The dashboard uses pre-generated data files included in the repository, so you don't need to run the analysis notebooks first. Only run the notebooks if you want to regenerate the data from scratch.
 
+## 🔧 OpenTripPlanner Setup (Optional)
+
+If you want to regenerate the transit routing data from scratch (notebook 04), you need to set up OpenTripPlanner (OTP) server with Hamburg GTFS data:
+
+**Current Status:** The repository includes pre-generated routing cache files, so OTP is not required for immediate use of the dashboard or existing data analysis.
+
+**OTP Setup Steps (for regeneration only):**
+1. Download OpenTripPlanner 2.5.0 from: https://github.com/opentripplanner/OpenTripPlanner/releases
+2. Download Hamburg GTFS data from: https://suche.transparenz.hamburg.de/dataset/hvv-fahrplandaten-gtfs-mai-2025-bis-dezember-2025
+3. Place the OTP JAR file and GTFS data in an `otp/` folder
+4. Start OTP server: `java -jar otp-2.5.0-shaded.jar --graphs hamburg --port 8080`
+5. The notebook 04_commute_routing.ipynb will connect to `http://localhost:8080/otp/routers/default`
+
+**Note:** This setup is only needed if you want to regenerate transit routes. The provided routing cache allows the analysis to be demonstrated without OTP.
+
 ### Dashboard Features:
 - **🗺️ Interactive Map** - Employee locations, office, HVV stations with layer control
 - **📊 Analytics** - Commute time and adoption score distributions
