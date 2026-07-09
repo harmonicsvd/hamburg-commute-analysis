@@ -63,7 +63,7 @@ The dashboard will be available at `http://localhost:8501`
 ## Methodology & Decisions
 
 ### Multi-Candidate Station Approach
-- **Approach:** Evaluate k=5 nearest stations per employee rather than using only the geographically nearest station
+-  **Approach:** Evaluate k=5 nearest stations per employee rather than using only the geographically nearest station
 
 - **Decision Rationale:** The geographically nearest station may not provide the optimal commute time due to transit network structure, route connections, and service frequency
 
