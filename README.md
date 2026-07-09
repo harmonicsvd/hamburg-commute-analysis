@@ -46,7 +46,7 @@ The dashboard will be available at `http://localhost:8501`
 - **🔄 Scenario Comparison** - Financial analysis across cost scenarios
 - **🎛️ Real-time Filters** - Filter by commute time, adoption score, distance
 - **📥 Export** - Download filtered data as CSV
-- **🗺️ Map Export** - Option to export interactive map as HTML file
+
 
 ## 📝 Project Structure
 - **01_data_generation.ipynb** - Synthetic employee data generation (optional - run only if regenerating data)
