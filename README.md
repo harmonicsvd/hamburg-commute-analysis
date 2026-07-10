@@ -247,13 +247,6 @@ Adoption Score = (Transport Attractiveness × 0.6) + (Financial Attractiveness �
 
 **Implication:** Adoption decisions are driven by time and convenience (practicality), not by who pays for the ticket. Even when employees pay the full €63/month, the cost savings over driving are so substantial that cost doesn't differentiate between scenarios.
 
-### Strategic Recommendations
-1. **Targeted Promotion:** Focus Deutschlandticket promotion on the 10-20km range where strong connectivity is concentrated (47 employees)
-2. **Geographic Targeting:** Prioritize areas with high transport attractiveness scores (75.7/100 average in strong connectivity areas)
-3. **Support Programs:** Consider additional support for employees in weak connectivity areas (30-50km range) with long commutes
-4. **Alternative Solutions:** Develop alternatives for 26% of employees without viable public transport routes (car pooling, shuttle services)
-5. **Data Validation:** Replace synthetic data with actual employee locations for accurate business decisions
-
 ## Limitations
 
 ### Data Limitations
