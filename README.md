@@ -207,10 +207,11 @@ If you want to regenerate the transit routing data from scratch (notebook 04), y
 - **Note:** Cache files are pre-generated and included in the repository for immediate use
 
 ### Key Formulas
-**Optimal Commute Time:**
+**Optimal Commute Time (one-way only):**
 ```
 Total Commute = walk_home_to_station + transit_time + walk_station_to_office
 ```
+*Note: This represents home-to-office journey only, not round-trip.*
 
 **Adoption Score:**
 ```
@@ -259,6 +260,7 @@ Adoption Score = (Transport Attractiveness Ã— 0.6) + (Financial Attractiveness Ã
 ### Methodology Limitations
 - Single time point analysis (08:00 only) - represents morning commute snapshot
 - No evening commute analysis or rush hour variations
+- **One-way commute time only** - Total commute time represents home-to-office journey only, not round-trip. Return journey times may differ due to transit schedules and walking patterns
 - Cost advantage so large that subsidy scenarios don't differentiate adoption
 - Hamburg-specific analysis (may not generalize to other locations)
 - No employee preference data included
